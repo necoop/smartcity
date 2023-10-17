@@ -19,7 +19,7 @@
 
     <nav class="nav container">
         <a href="#0">
-            <img src="img/Logo.png" alt="Logo">
+            <img src="img/Logo.png" alt="Logo" class="logo__img">
         </a>
         <div class="nav__menu">
             <ul class="nav__list">
@@ -28,8 +28,19 @@
             </ul>
             <a href="#)" class="try__now__btn">Try now!</a>
         </div>
+        <div id="hamburger__menu">
+            <input id="menu__toggle" type="checkbox">
+            <label id="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul id="menu__box">
+                <li><a class="menu__item" href="#!">Список пунктов меню</a></li>
+                <li><a class="menu__item" href="#!">Список пунктов меню</a></li>
+                <li><a class="menu__item" href="#!">Список пунктов меню</a></li>
+            </ul>
+        </div>
     </nav>
-    <section class="main">
+    <main class="main">
         <div class="main__content container">
             <div class="main__text">
                 <h1 class="text__top">
@@ -48,7 +59,7 @@
         <a href="#0" class="arrow__down">
             <img src="img/arrow_down.png" alt="arrow">
         </a>
-    </section>
+    </main>
 </body>
 
 </html>

@@ -59,7 +59,7 @@ body {
   padding-top: 70px;
   padding-bottom: 23px;
 }
-.main__content{
+.main__content {
   position: relative;
 }
 .main__text {
@@ -69,7 +69,7 @@ body {
   padding-left: 8px;
 }
 h1 {
-  font-size: 62px;
+  font-size: clamp(30px, 8.3vw, 62px);
   font-weight: 600;
   line-height: 120%; /* 74.4px */
   text-transform: uppercase;
@@ -77,33 +77,174 @@ h1 {
 .text__bottom {
   max-width: 527px;
   width: 100%;
-  font-size: 24px;
+  font-size: clamp(16px, 3.2vw, 24px);
   font-style: normal;
   font-weight: 400;
   line-height: 140%; /* 33.6px */
   margin-top: 20px;
   display: block;
 }
-.city_map{
+.city_map {
   position: absolute;
   width: fit-content;
   right: 14px;
   bottom: -114px;
 }
 @keyframes pointers {
-  50%{top: -45px;}
-  100%{top: -31px;}
+  50% {
+    top: -11.78%;
+  }
+  100% {
+    top: -8.12%;
+  }
 }
-.city__pointers{
+.city__pointers {
   position: absolute;
-  top: -31px;
-  left: 179px;
+  top: -8.12%;
+  left: 32.08%;
   animation: pointers 1.2s linear infinite;
 }
-.arrow__down{
+.arrow__down {
   display: block;
   margin: 0 auto;
   width: fit-content;
   position: relative;
   top: 103px;
+}
+
+/* Гамбургер*/
+#hamburger__menu {
+  display: none;
+  z-index: 1000;
+  position: absolute;
+}
+#menu__toggle {
+  opacity: 0;
+}
+#menu__btn {
+  display: flex; /* используем flex для центрирования содержимого */
+  align-items: center; /* центрируем содержимое кнопки */
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+#menu__btn > span,
+#menu__btn > span::before,
+#menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #00c;
+  border-radius: 2px;
+}
+#menu__btn > span::before {
+  content: "";
+  top: -8px;
+}
+#menu__btn > span::after {
+  content: "";
+  top: 8px;
+}
+#menu__box {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 65px 0 0 46px;
+  list-style: none;
+  text-align: start;
+  background: linear-gradient(
+    180deg,
+    rgba(254, 199, 5, 0.81) 0%,
+    rgba(219, 254, 5, 0.81) 100%
+  );
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+} /* элементы меню */
+.menu__item {
+  display: block;
+  color: #000;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+}
+#menu__box > :not(:first-child) {
+  margin-top: 66px;
+}
+#menu__toggle {
+  position: fixed;
+}
+#menu__toggle:checked ~ #menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__toggle:checked ~ #menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+}
+#menu__toggle:checked ~ #menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#menu__toggle:checked ~ #menu__box {
+  visibility: visible;
+  left: 0;
+}
+#menu__btn > span,
+#menu__btn > span::before,
+#menu__btn > span::after {
+  transition-duration: 0.25s;
+}
+#menu__box {
+  transition-duration: 0.25s;
+}
+.menu__item {
+  transition-duration: 0.25s;
+}
+/* Гамбургер окончание */
+
+@media (max-width: 1199px) {
+  .main__content {
+    display: flex;
+    gap: 85px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .main__text{
+    padding-left: 0;
+  }
+  .city_map {
+    position: relative;
+    right: 0;
+    bottom: 0;
+  }
+  .city {
+    width: 100%;
+  }
+  .city__pointers {
+    width: 42.83%;
+  }
+}
+@media (max-width: 575px) {
+  #hamburger__menu {
+    display: block;
+  }
+  .nav__menu {
+    display: none;
+  }
+  .logo__img {
+    width: 132px;
+    height: 49px;
+  }
+  .main{
+    padding-top: 56px;
+  }
 }
