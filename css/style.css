@@ -6,6 +6,7 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   font-size: clamp(26px, 4.33vw, 52px);
+  min-height: 4656px;
 }
 
 h2 {
@@ -40,21 +41,31 @@ h3 {
 .nav .try__now__btn {
   padding: 16px 34px;
   font-size: 18px;
+  margin-left: 20px;
+  white-space: nowrap;
 }
 
 .nav__menu {
   width: 100%;
-  max-width: 361px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
+  gap: 20px;
 }
 
 .nav__list {
   display: flex;
   width: 100%;
   max-width: 180px;
-  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.nav__list .nav__item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.nav__item {
+  white-space: nowrap;
 }
 
 .nav__item a {
@@ -276,7 +287,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: end;
-  margin-top: 70px;
+  margin-top: 96px;
 }
 
 .about {
@@ -432,6 +443,112 @@ h1 {
   margin-left: 19px;
 }
 
+.city__big {
+  height: 779px;
+  background-image: url(../img/city_big.png);
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  overflow: hidden;
+  position: relative;
+}
+
+.wheel {
+  position: relative;
+  top: 371px;
+  left: 45px;
+  animation: rotate 16s linear infinite;
+  z-index: 20;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.moving__arrow {
+  position: relative;
+  width: 24px;
+  height: 40px;
+}
+.moving__arrow::before, .moving__arrow::after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+.moving__arrow::before {
+  width: 24px;
+  height: 5px;
+  background: url(../img/map_circle.png);
+  bottom: 0;
+}
+.moving__arrow::after {
+  width: 20px;
+  height: 29px;
+  background: url(../img/map_arrow.png);
+  left: 2px;
+  top: 7px;
+  animation: updown 1s linear infinite;
+}
+
+#moving__arrow1 {
+  top: 119px;
+  left: 207px;
+}
+
+#moving__arrow2 {
+  left: 485px;
+  top: 63px;
+}
+
+#moving__arrow3 {
+  left: 1364px;
+  top: 60px;
+}
+
+@keyframes updown {
+  50% {
+    top: 0;
+  }
+  100% {
+    top: 7px;
+  }
+}
+.cloud {
+  position: absolute;
+}
+
+#cloud1 {
+  top: 127px;
+  left: 153px;
+  z-index: 10;
+}
+
+#cloud2 {
+  top: 154px;
+  left: 771px;
+}
+
+#cloud3 {
+  top: 223px;
+  left: 1038px;
+}
+
+#cloud4 {
+  top: 289px;
+  left: 529px;
+}
+
+#moon {
+  top: 68px;
+  left: 322px;
+}
+
+@media (max-width: 1227px) {
+  .offer .try__now__btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 @media (max-width: 1199px) {
   .main__content {
     display: flex;
@@ -558,5 +675,15 @@ h1 {
   }
   .offer__item .result__img {
     width: 113px;
+  }
+  #cloud1 {
+    left: 7px;
+  }
+  #cloud4 {
+    top: 374px;
+    left: 300px;
+  }
+  #moon {
+    left: 140px;
   }
 }/*# sourceMappingURL=style.css.map */
