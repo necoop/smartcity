@@ -6,7 +6,6 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   font-size: clamp(26px, 4.33vw, 52px);
-  min-height: 4656px;
 }
 
 h2 {
@@ -319,7 +318,7 @@ h1 {
   background: #689ff5;
   padding: 73px 0;
   color: #fff;
-  line-height: 0.53em;
+  line-height: 0.7em;
   font-size: clamp(18px, 2.36vw, 34px);
 }
 .didyouknow .lamp {
@@ -543,6 +542,95 @@ h1 {
   left: 322px;
 }
 
+.try {
+  background: #689ff5;
+  padding: 46px 0 60px;
+  color: #fff;
+}
+.try .container {
+  display: flex;
+  gap: 125px;
+}
+.try p {
+  font-size: 16px;
+  line-height: 120%;
+  margin-top: 28px;
+  max-width: 566px;
+}
+.try label {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 120%;
+}
+.try button {
+  margin-top: 30px;
+}
+.try .sity__avatar {
+  width: 421px;
+  height: -moz-fit-content;
+  height: fit-content;
+  align-self: center;
+}
+.try input::-moz-placeholder, .try textarea::-moz-placeholder {
+  color: rgb(119, 163, 228);
+}
+.try input::placeholder,
+.try textarea::placeholder {
+  color: rgb(119, 163, 228);
+}
+
+.form__wrap {
+  max-width: 590px;
+}
+
+.contact__details {
+  display: flex;
+  gap: 20px;
+}
+
+#name,
+#email,
+#textmessage {
+  background: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 24px;
+  color: #00c;
+}
+
+#name,
+#email {
+  height: 72px;
+  width: 285px;
+  position: relative;
+  margin-top: 10px;
+}
+
+#textmessage {
+  resize: none;
+  width: 100%;
+  position: relative;
+  margin-top: 4px;
+  height: 147px;
+}
+
+.feedback {
+  margin-top: 30px;
+}
+
+.footer {
+  background: #000073;
+  padding: 53px 0;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #fff;
+}
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @media (max-width: 1227px) {
   .offer .try__now__btn {
     margin-left: auto;
@@ -570,12 +658,29 @@ h1 {
   .city__pointers {
     width: 42.83%;
   }
+  .contact__details {
+    flex-direction: column;
+  }
+  #name,
+  #email {
+    display: block;
+    width: 100%;
+  }
+  .try .container {
+    justify-content: center;
+  }
+  .try .try__now__btn {
+    width: 100%;
+  }
 }
 @media (max-width: 991px) {
   .about {
     flex-direction: column;
     padding-top: 80px;
     gap: 20px;
+  }
+  .sity__avatar {
+    display: none;
   }
 }
 @media (max-width: 575px) {
@@ -685,5 +790,35 @@ h1 {
   }
   #moon {
     left: 140px;
+  }
+  .try {
+    padding: 16px 0;
+  }
+  .try p {
+    margin-top: 11px;
+    font-size: 14px;
+  }
+  .try label {
+    font-size: 14px;
+  }
+  .try .email {
+    margin-top: 7px;
+  }
+  .try button {
+    margin-top: 47px;
+  }
+  #name, #email, #textmessage {
+    font-size: 12px;
+  }
+  .feedback {
+    margin-top: 40px;
+  }
+  .message {
+    margin-top: 25px;
+    display: block;
+  }
+  #textmessage {
+    margin-top: 12px;
+    height: 142px;
   }
 }/*# sourceMappingURL=style.css.map */

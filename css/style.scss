@@ -5,7 +5,6 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   font-size: clamp(26px, 4.33vw, 52px);
-  min-height: 4656px;
 }
 h2 {
   text-transform: uppercase;
@@ -290,7 +289,7 @@ h1 {
   background: #689ff5;
   padding: 73px 0;
   color: #fff;
-  line-height: 0.53em;
+  line-height: 0.7em;
   font-size: clamp(18px, 2.36vw, 34px);
   .lamp {
     width: 100%;
@@ -415,7 +414,7 @@ h1 {
 }
 // Окончание секции offer
 
-// Секция city
+// Секция city__big
 .city__big {
   height: 779px;
   background-image: url(../img/city_big.png);
@@ -505,7 +504,93 @@ h1 {
   top: 68px;
   left: 322px;
 }
-// Окончание секции city
+// Окончание секции city__big
+
+// Секция try
+.try {
+  background: #689ff5;
+  padding: 46px 0 60px;
+  color: #fff;
+  .container {
+    display: flex;
+    gap: 125px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 120%;
+    margin-top: 28px;
+    max-width: 566px;
+  }
+  label {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 120%;
+  }
+  button {
+    margin-top: 30px;
+  }
+  .sity__avatar {
+    width: 421px;
+    height: fit-content;
+    align-self: center;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: rgb(119, 163, 228);
+  }
+}
+.form__wrap {
+  max-width: 590px;
+}
+.contact__details {
+  display: flex;
+  gap: 20px;
+}
+#name,
+#email,
+#textmessage {
+  background: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 24px;
+  color: #00c;
+}
+#name,
+#email {
+  height: 72px;
+  width: 285px;
+  position: relative;
+  margin-top: 10px;
+}
+#textmessage {
+  resize: none;
+  width: 100%;
+  position: relative;
+  margin-top: 4px;
+  // top: 4px;
+  height: 147px;
+}
+.feedback {
+  margin-top: 30px;
+}
+// Окончание секции try
+
+//Footer
+.footer{
+  background: #000073;
+  padding: 53px 0;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #fff;
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+//Окончание Footer
+
+// Адаптив
 @media (max-width: 1227px) {
   .offer {
     .try__now__btn {
@@ -535,12 +620,31 @@ h1 {
   .city__pointers {
     width: 42.83%;
   }
+  .contact__details {
+    flex-direction: column;
+  }
+  #name,
+  #email {
+    display: block;
+    width: 100%;
+  }
+  .try {
+    .container {
+      justify-content: center;
+    }
+    .try__now__btn {
+      width: 100%;
+    }
+  }
 }
 @media (max-width: 991px) {
   .about {
     flex-direction: column;
     padding-top: 80px;
     gap: 20px;
+  }
+  .sity__avatar {
+    display: none;
   }
 }
 @media (max-width: 575px) {
@@ -653,5 +757,35 @@ h1 {
   }
   #moon {
     left: 140px;
+  }
+  .try {
+    padding: 16px 0;
+    p {
+      margin-top: 11px;
+      font-size: 14px;
+    }
+    label {
+      font-size: 14px;
+    }
+    .email {
+      margin-top: 7px;
+    }
+    button{
+      margin-top: 47px;
+    }
+  }
+  #name, #email, #textmessage{
+    font-size: 12px;
+  }
+  .feedback {
+    margin-top: 40px;
+  }
+  .message {
+    margin-top: 25px;
+    display: block;
+  }
+  #textmessage{
+    margin-top:12px;
+    height: 142px;
   }
 }
