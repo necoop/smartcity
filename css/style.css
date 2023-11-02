@@ -631,6 +631,11 @@ h1 {
   align-items: center;
 }
 
+.arrow__up {
+  -webkit-clip-path: polygon(50% 11.76%, 74.51% 65.69%, 50% 55.88%, 25.49% 65.69%);
+          clip-path: polygon(50% 11.76%, 74.51% 65.69%, 50% 55.88%, 25.49% 65.69%);
+}
+
 @media (max-width: 1227px) {
   .offer .try__now__btn {
     margin-left: auto;
@@ -760,8 +765,7 @@ h1 {
     gap: 10px;
   }
   .offer__item {
-    width: -moz-fit-content;
-    width: fit-content;
+    width: 100%;
     min-height: 360px;
   }
   .offer__item h3 {
@@ -792,7 +796,7 @@ h1 {
     left: 140px;
   }
   .try {
-    padding: 16px 0;
+    padding: 16px 0 40px;
   }
   .try p {
     margin-top: 11px;
@@ -820,5 +824,12 @@ h1 {
   #textmessage {
     margin-top: 12px;
     height: 142px;
+  }
+  .footer {
+    font-size: 14px;
+    padding: 16px 0;
+  }
+  .arrow__up img {
+    width: 62px;
   }
 }/*# sourceMappingURL=style.css.map */

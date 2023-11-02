@@ -588,6 +588,9 @@ h1 {
     align-items: center;
   }
 }
+.arrow__up{
+  clip-path: polygon(50% 11.76%, 74.51% 65.69%, 50% 55.88%, 25.49% 65.69%);
+}
 //Окончание Footer
 
 // Адаптив
@@ -728,7 +731,7 @@ h1 {
   }
 
   .offer__item {
-    width: fit-content;
+    width: 100%;
     h3 {
       font-size: 26px;
       line-height: 1.2;
@@ -759,7 +762,7 @@ h1 {
     left: 140px;
   }
   .try {
-    padding: 16px 0;
+    padding: 16px 0 40px;
     p {
       margin-top: 11px;
       font-size: 14px;
@@ -787,5 +790,14 @@ h1 {
   #textmessage{
     margin-top:12px;
     height: 142px;
+  }
+  .footer{
+    font-size: 14px;
+    padding: 16px 0;
+  }
+  .arrow__up{
+    img{
+      width: 62px;
+    }
   }
 }
