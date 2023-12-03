@@ -608,7 +608,7 @@ h1 {
   border: solid white;
 }
 
-.error {
+.field__error {
   border: solid red !important;
 }
 
