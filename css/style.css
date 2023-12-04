@@ -610,9 +610,11 @@ h1 {
 
 .field__error {
   border: solid red !important;
+  transition: 0.5s ease all;
 }
 
-.contact__error, .name__error {
+.contact__error,
+.name__error {
   left: 40%;
   display: inline-block;
   font-size: 11px;
@@ -628,7 +630,8 @@ h1 {
   top: 0;
   left: 0;
 }
-.contact__error::after, .name__error::after {
+.contact__error::after,
+.name__error::after {
   content: "";
   position: absolute;
   left: 20px;
@@ -867,5 +870,83 @@ h1 {
   }
   .arrow__up img {
     width: 62px;
+  }
+}
+.modal {
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #689ff5;
+  border-radius: 10px;
+  width: 642px;
+  padding: 20px 15px;
+  max-width: 95%;
+  font-size: 16px;
+}
+.order__form h2 {
+  color: #fff;
+  text-align: center;
+  text-transform: none;
+  margin-bottom: 30px;
+}
+.order__form input,
+.order__form textarea {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 24px;
+  color: #00c;
+}
+.order__form label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #fff;
+  font-size: 18px;
+}
+.order__form input::-moz-placeholder, .order__form textarea::-moz-placeholder {
+  color: rgb(119, 163, 228);
+}
+.order__form input::placeholder,
+.order__form textarea::placeholder {
+  color: rgb(119, 163, 228);
+}
+.order__form .try__now__btn {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.modal__wrapper {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#usermessage {
+  width: 100%;
+  resize: none;
+  margin-top: 4px;
+  height: 147px;
+}
+
+@media (max-width: 664px) {
+  .modal__wrapper label {
+    width: 100%;
+  }
+  .order__form .try__now__btn {
+    width: 100%;
   }
 }/*# sourceMappingURL=style.css.map */

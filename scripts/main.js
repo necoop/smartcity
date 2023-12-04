@@ -18,7 +18,10 @@ function send() {
     // Имя не введено
     userName.addClass("field__error");
     if ($(".name__error").length === 0) {
-      $("<span class='name__error'>Enter you name</span>").insertAfter("#name");
+      $("<span class='name__error'>Enter you name</span>")
+        .insertAfter("#name")
+        .hide()
+        .fadeIn(500);
     }
   }
 
@@ -31,9 +34,52 @@ function send() {
     // Email неверный
     email.addClass("field__error");
     if ($(".contact__error").length === 0) {
-      $("<span class='contact__error'>Enter valid address</span>").insertAfter(
-        "#email"
-      );
+      $("<span class='contact__error'>Enter valid address</span>")
+        .insertAfter("#email")
+        .hide()
+        .fadeIn(500);
     }
   }
 }
+
+const menuToggle = $("#menu__toggle");
+menuToggle.on("change", function () {
+  console.log(menuToggle.prop("checked"));
+  if (menuToggle.prop("checked")) {
+    $("body").css("overflow", "hidden");
+  } else {
+    $("body").css("overflow", "auto");
+  }
+});
+
+$(".nav__menu .try__now__btn, .offer .try__now__btn").on("click", function () {
+  $(modalWindow).insertAfter("footer").hide().fadeIn(300);
+  $(".modal").on("click", function (e) {
+    if (e.target === this) {
+      $(".modal").fadeOut(300, function(){
+        $(this).remove();
+      });
+    }
+  });
+});
+
+const modalWindow = `<div class="modal">
+<form class="order__form">
+    <h2>Get free consulting by our experts to assess the potential improvements in your business!</h2>
+    <div class="modal__wrapper">
+        <label for="username">
+            Name
+            <input type="text" name="username" id="username" placeholder="John Doe">
+        </label>
+        <label for="useremail">
+            Email
+            <input type="text" name="useremail" id="useremail" placeholder="example@email.com">
+        </label>
+    </div>
+    <label for="usermessage">
+        Write to us
+        <textarea name="usermessage" id="usermessage" placeholder="Please post your message here..."></textarea>
+    </label>
+    <button type="submit" class="try__now__btn">Try now!</button>
+</form>
+</div>`;
