@@ -44,7 +44,6 @@ function send() {
 
 const menuToggle = $("#menu__toggle");
 menuToggle.on("change", function () {
-  console.log(menuToggle.prop("checked"));
   if (menuToggle.prop("checked")) {
     $("body").css("overflow", "hidden");
   } else {
@@ -54,10 +53,12 @@ menuToggle.on("change", function () {
 
 $(".nav__menu .try__now__btn, .offer .try__now__btn").on("click", function () {
   $(modalWindow).insertAfter("footer").hide().fadeIn(300);
+  setScrollBlock(true);
   $(".modal").on("click", function (e) {
-    if (e.target === this) {
-      $(".modal").fadeOut(300, function(){
+    if (e.target === this || $(e.target).hasClass("exit") || $(e.target).closest('.exit').length) {
+      $(".modal").fadeOut(300, function () {
         $(this).remove();
+        setScrollBlock(false);
       });
     }
   });
@@ -65,6 +66,9 @@ $(".nav__menu .try__now__btn, .offer .try__now__btn").on("click", function () {
 
 const modalWindow = `<div class="modal">
 <form class="order__form">
+    <label class="exit">
+        <span></span>
+    </label>
     <h2>Get free consulting by our experts to assess the potential improvements in your business!</h2>
     <div class="modal__wrapper">
         <label for="username">
@@ -83,3 +87,18 @@ const modalWindow = `<div class="modal">
     <button type="submit" class="try__now__btn">Try now!</button>
 </form>
 </div>`;
+
+function setScrollBlock(isBlocked) {
+  const scrollWidth =
+    window.innerWidth - document.documentElement.clientWidth + "px";
+  const body = document.body;
+  const html = document.documentElement;
+
+  if (isBlocked) {
+    body.style.overflowY = "hidden";
+    html.style.paddingRight = scrollWidth;
+  } else {
+    body.style.overflowY = "auto";
+    html.style.paddingRight = "0";
+  }
+}
