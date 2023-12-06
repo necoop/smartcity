@@ -45,19 +45,27 @@ function send() {
 const menuToggle = $("#menu__toggle");
 menuToggle.on("change", function () {
   if (menuToggle.prop("checked")) {
-    $("body").css("overflow", "hidden");
+    setScrollBlock(true);
   } else {
-    $("body").css("overflow", "auto");
+    setScrollBlock(false);
   }
 });
 
-$(".nav__menu .try__now__btn, .offer .try__now__btn").on("click", function () {
+$(
+  ".nav__menu .try__now__btn, .offer .try__now__btn, #menu__box .try__now__btn"
+).on("click", function () {
   $(modalWindow).insertAfter("footer").hide().fadeIn(300);
   setScrollBlock(true);
+  console.log("Блокирование включено");
   $(".modal").on("click", function (e) {
-    if (e.target === this || $(e.target).hasClass("exit") || $(e.target).closest('.exit').length) {
+    if (
+      e.target === this ||
+      $(e.target).hasClass("exit") ||
+      $(e.target).closest(".exit").length
+    ) {
       $(".modal").fadeOut(300, function () {
         $(this).remove();
+        console.log("Блокирование отключено");
         setScrollBlock(false);
       });
     }
@@ -88,17 +96,25 @@ const modalWindow = `<div class="modal">
 </form>
 </div>`;
 
-function setScrollBlock(isBlocked) {
-  const scrollWidth =
-    window.innerWidth - document.documentElement.clientWidth + "px";
-  const body = document.body;
-  const html = document.documentElement;
+const setScrollBlock = (function () {
+  let numberOfBlocks = 0;
 
-  if (isBlocked) {
-    body.style.overflowY = "hidden";
-    html.style.paddingRight = scrollWidth;
-  } else {
-    body.style.overflowY = "auto";
-    html.style.paddingRight = "0";
-  }
-}
+  return function (isBlocked) {
+    const scrollWidth =
+      window.innerWidth - document.documentElement.clientWidth + "px";
+    const body = document.body;
+    const html = document.documentElement;
+
+    if (isBlocked) {
+      numberOfBlocks++;
+      body.style.overflowY = "hidden";
+      html.style.paddingRight = scrollWidth;
+    } else {
+      numberOfBlocks--;
+      if (numberOfBlocks < 1) {
+        body.style.overflowY = "auto";
+        html.style.paddingRight = "0";
+      }
+    }
+  };
+})();
